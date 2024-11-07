@@ -6,6 +6,7 @@ import { basketProduct, deleteProduct } from "../../redux/reducer/action";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaRegHeart } from "react-icons/fa";
 
 const Product = () => {
     const { product } = useSelector((s: RootState) => s.product)
@@ -68,6 +69,10 @@ const Product = () => {
                                     <button onClick={() => dispatch(basketProduct(el),succses())} type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
                                         buy
                                     </button>
+                                    <button type="button" className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2
+                                     dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600
+                                     dark:focus:ring-gray-700"><FaRegHeart/></button>
+
                                     <ToastContainer/>
                                 </div>
                             </div>

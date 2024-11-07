@@ -1,4 +1,4 @@
-import { ADD_Product, Basket, BASKET_PRODUCT, BasketProduct, CreateProduct, DELETE_BASKET, DELETE_Product, DeleteBasket, DeleteProduct, EDIT_Product, EditProduct, INCREMENT_QUANTITY, IncrementQuantity, Product } from "../../types/types";
+import { ADD_Product, Basket, BASKET_PRODUCT, BasketProduct, CreateProduct, DELETE_BASKET, DELETE_Product, DeleteBasket, DeleteProduct, EDIT_Product, EditProduct, INCREMENT_QUANTITY, IncrementQuantity, MINUS_QUANTITY, MinusQuantity, Product } from "../../types/types";
 
 export const createProduct = (product:Product): CreateProduct => ({
     type: ADD_Product,
@@ -17,12 +17,17 @@ export const basketProduct = (basket:Basket): BasketProduct => ({
     payload: basket,
 })
 
-export const IncrementQuently = (quantly:number): IncrementQuantity => ({
+export const IncrementQuently = (basket:Basket): IncrementQuantity => ({
     type: INCREMENT_QUANTITY,
-    payload: quantly,
+    payload: basket,
 })
 
 export const deleteBasket = (id:number): DeleteBasket => ({
     type: DELETE_BASKET,
     payload: id,
+})
+
+export const MinusQuantly = (basket:Basket): MinusQuantity => ({
+    type: MINUS_QUANTITY,
+    payload: basket,
 })

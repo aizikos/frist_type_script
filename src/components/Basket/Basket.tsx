@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../redux/store"
-import { deleteBasket, IncrementQuently } from "../../redux/reducer/action"
+import { deleteBasket, IncrementQuently, MinusQuantly } from "../../redux/reducer/action"
 
 
 
@@ -8,8 +8,6 @@ const Basket = () => {
 
     const { basket } = useSelector((s: RootState) => s.product)
     const dispatch = useDispatch()
-    console.log(basket);
-    
 
     return (
         <div className="containers">
@@ -39,7 +37,7 @@ const Basket = () => {
                     <tbody>
                         {
                             basket.map((el) => (
-                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <tr key={el.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <td className="p-4 flex justify-evenly items-center">
                                         <img src={el.img} className="w-[70px]" alt="Apple Watch" />
                                     </td>
@@ -48,7 +46,7 @@ const Basket = () => {
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="flex items-center">
-                                            <button className="inline-flex items-center justify-center p-1 me-3 
+                                            <button onClick={() => dispatch(MinusQuantly(el))} className="inline-flex items-center justify-center p-1 me-3 
                                             text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 
                                             rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
                                                 <span className="sr-only">Quantity button</span>
@@ -61,7 +59,7 @@ const Basket = () => {
                                                     {el.quantly}
                                                 </h1>                                            
                                             </div>
-                                            <button onClick={() => IncrementQuently(el.quantly)}
+                                            <button onClick={() => dispatch(IncrementQuently(el))}
                                              className="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
                                                 <span className="sr-only">Quantity button</span>
                                                 <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">

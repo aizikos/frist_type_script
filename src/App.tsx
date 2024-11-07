@@ -5,6 +5,7 @@ import Home from "./components/Home/Home"
 import Product from "./components/Product/Product"
 import Edit from "./components/editUser/Edit"
 import Basket from "./components/Basket/Basket"
+import Favorite from "./components/Favorite/Favorite"
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/product" element= {<Product/>}/>
         <Route path='/edit/:id' element= {<Edit/>}/>
         <Route path="/basket" element={<Basket/>}/>
+        <Route path="/favorite" element={<Favorite/>}/>
       </Routes>
     </>
   )

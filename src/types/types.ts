@@ -4,6 +4,7 @@ export interface Product {
     img: string;
     price: number;
     quantly: number;
+    info: string;
 }
 
 export interface Basket{
@@ -12,6 +13,7 @@ export interface Basket{
     img: string;
     price: number;
     quantly:number;
+    info: string;
 }
 
 
@@ -28,6 +30,7 @@ export const DELETE_Product = 'DELETE_Product'
 export const BASKET_PRODUCT = 'BASKET_PRODUCT'
 export const INCREMENT_QUANTITY = "INCREMENT_QUANTITY"
 export const DELETE_BASKET = 'DELETE_BASKET'
+export const MINUS_QUANTITY = 'MINUS_QUANTITY'
 
 
 export interface CreateProduct {
@@ -54,7 +57,7 @@ export interface BasketProduct{
 
 export interface IncrementQuantity{
     type: typeof INCREMENT_QUANTITY,
-    payload:number,
+    payload:Basket,
     [key:string]: unknown
 }
 
@@ -64,4 +67,10 @@ export interface DeleteBasket {
     [key: string]: unknown
 }
 
-export type ProductActionType = CreateProduct| EditProduct | DeleteProduct|BasketProduct|IncrementQuantity|DeleteBasket;
+export interface MinusQuantity{
+    type: typeof MINUS_QUANTITY,
+    payload:Basket,
+    [key:string]: unknown
+}
+
+export type ProductActionType = CreateProduct| EditProduct | DeleteProduct|BasketProduct|IncrementQuantity|DeleteBasket|MinusQuantity;
